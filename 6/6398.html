@@ -1,8 +1,9 @@
 <html>
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.ui.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/controls.min.css" crossorigin="anonymous" />
+    <meta name="referrer" content="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.1.2/shaka-player.ui.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.1.2/controls.min.css" crossorigin="anonymous" />
 </script>
 <body bgcolor='black' style='margin:0'>
 </script>
@@ -15,7 +16,6 @@
         </div>
     </center>
     <script>
-        const manifestUri = "https://linearjitp-playback.astro.com.my/dash-wv/linear/5018/default.mpd";
         async function init() {
             const video = document.getElementById('video');
             const ui = video['ui'];
@@ -23,12 +23,18 @@
             const player = controls.getPlayer();
             window.player = player;
             window.ui = ui;
+            const manifestUri = "https://linearjitp-playback.astro.com.my/dash-wv/linear/5018/default_primary.mpd";
             player.configure({
                 drm: {
                     "clearKeys": {
                         '98817b144bcf19fd0ddca7fe54cee110': '44b423a77dd34ace162db35cbb0fb6a3'
                     }
                 }
+            });
+            player.getNetworkingEngine().registerRequestFilter(function(type, request) {
+                if (type == shaka.net.NetworkingEngine.RequestType.SEGMENT) {
+                    request.headers['Origin'] = 'https://astrogo.astro.com.my';  
+                    request.headers['Referer'] = 'https://astrogo.astro.com.my/';                }
             });
             player.addEventListener('error', onPlayerErrorEvent);
             controls.addEventListener('error', onUIErrorEvent);
