@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shaka Player Basic Playback</title>
+  <script src="https://cdn.shaka-player-demo.appspot.com/shaka-player.compiled.js"></script>
+</head>
+<body>
+  <video id="video" width="640" height="360" autoplay controls></video>
+  <script>
+    async function init() {
+      // Create a Player instance.
+      const video = document.getElementById('video');
+      const player = new shaka.Player(video);
+
+      // Attach player to the window to make it easy to access in the JS console.
+      window.player = player;
+
+      // Load a manifest.
+      // This is an asynchronous process.
+      await player.load('https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8');
+    }
+
+    init();
+  </script>
+</body>
+</html>
