@@ -1,6 +1,7 @@
 <html>
 
 <head>
+	<meta name="referrer" content="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.ui.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/controls.min.css" crossorigin="anonymous" />
 </script>
@@ -15,7 +16,7 @@
         </div>
     </center>
     <script>
-        const manifestUri = "https://unifi-live01.secureswiftcontent.com/UnifiHD/live03.mpd";
+        const manifestUri = "https://linears-playback.astro.com.my/vsg/41QHr9S-44dsgjZYB2C9PdVhU8IdE8-Zm_jd-_Equ7xP4=K8pN/dash-wv/jitp-linearwm/1004/default_primary.mpd";
         async function init() {
             const video = document.getElementById('video');
             const ui = video['ui'];
@@ -26,7 +27,7 @@
             player.configure({
                 drm: {
                     "clearKeys": {
-                        '3afe30ee4ea24a67fe5a2ef06e83db0b': '27a2f71d87bf5eb105af096fb6605d97'
+                        '3f726fd5cbbf5944437a4dbfab431b10': '376b009796e4ad50ea8f68d796676692'
                     }
                 }
             });
