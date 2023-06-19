@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<HTML>
+<head>
+<centre>
+<script src="https://content.jwplatform.com/libraries/Z79JsmAO.js"></script>
+<div id="jwplayerDiv"></div>
+<script>	
+jwplayer("jwplayerDiv").setup({
+  width: 1280,
+      height: 720,
+      autostart: true,
+    //playlist: [{
+        file: "https://linears-playback.astro.com.my/vsg/41-3j7MEPAU6dRtJM2zJUPgmFtdI0DCnWlu5_h20OaGpI=Ju3D/dash-wv/jitp-linearwm/2701/default_primary.mpd",
+		//type: "dash",
+	    drm: {
+	        clearkey: {
+	          key: '168f3fadfc730ba3dfc932f7c430e27d',
+	          keyId: '5be66a6f88efee3d6e30f72a9c58e310'
+	        }
+	      }
+   // }]
+});
+</script>
+</centre>
+</body>
+</HTML>
